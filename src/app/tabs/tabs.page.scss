@@ -1,0 +1,45 @@
+ion-progress-bar {
+  height: 2px;
+
+}
+
+.music-toolbar {
+  --min-height: var(--music-tab-height);
+  height: var(--music-tab-height);
+  --min-height: var(--music-tab-height);
+  --padding-top: 0px;
+  --padding-bottom: 0px;
+}
+
+.tab-icon{
+
+
+}
+
+ion-tab-bar {
+  --background: url(/assets/imagenes/degradado.jpg) no-repeat center/cover fixed;
+}
+
+.music-toolbar-buttons {
+  min-height: var(--music-tab-height);
+  height: var(--music-tab-height);
+  --min-height: var(--music-tab-height);
+}
+
+
+.music-toolbar-button {
+  height: var(--music-tab-height);
+  width: var(--music-tab-height);
+}
+
+.music-toolbar-title {
+  font-size: 12px;
+  min-height: var(--music-tab-height);
+  height: var(--music-tab-height);
+  --min-height: var(--music-tab-height);
+
+  p {
+    font-size: 10px;
+    color: var(--ion-color-medium);
+  }
+}

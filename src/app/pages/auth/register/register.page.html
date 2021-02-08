@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar clear color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [text]="" defaultHref="/auth/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+<br><br>
+<ion-content [fullscreen]="true" class="auth-page">
+  <br><br>
+  <ion-grid>
+    <ion-row>
+      <br><br>
+      <ion-col class="ion-text-center" size-md="6" size-lg="5" size-xs="12">
+        <form [formGroup]="register" (ngSubmit)="onSubmit()">
+                 
+
+          <ion-card color="light" class="auth-card ion-margin">
+            <ion-item lines="none" color="light">
+              <ion-input type="text" id="inputfirst-name" placeholder="First name" formControlName="first_name" required autfocus></ion-input>
+            </ion-item>
+           
+            <ion-item lines="none" color="light">
+              <ion-input type="email" id="inputEmail" placeholder="Email" formControlName="email" required autfocus></ion-input>
+        
+            </ion-item>
+            <p clear color="red" class="alert alert-danger" *ngIf="erroresForm.email">
+              {{ erroresForm.email }}
+              </p>
+            <ion-item lines="none" color="light" class="ion-no-inner-padding-end">
+              <ion-input type="password" id="inputPassword" placeholder="Password" formControlName="password" required ></ion-input>
+            </ion-item>
+            <p clear color="red" class="alert alert-danger" *ngIf="erroresForm.password">
+              {{ erroresForm.password }}
+              </p>
+            <ion-item lines="none" color="light" class="ion-no-inner-padding-end">
+              <ion-input type="password" id="inputPassword_confirm" placeholder="Password (Confirm)" formControlName="password_confirm" required >
+              </ion-input>
+            </ion-item>
+          </ion-card>
+<br>
+          <ion-button expand="block" class="ion-margin-start ion-margin-end ion-margin-bottom" type="submit"
+            [disabled]="!register.valid">
+            Sign Up
+          </ion-button>
+          <span class="ion-margin"></span>
+        </form>
+<br><br><br><br>
+        <p class="ion-margin">
+          <ion-text style="color: aliceblue;">
+            By pressing Sign Up, you agree to the service's
+            <a style="color: paleturquoise;" href="http://">Terms of Service</a>
+            and
+            <a style="color: paleturquoise;" href="http://">Privacy Policy</a>
+          </ion-text>
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,69 @@
+<ion-header   style="--ion-background-color: var(--ion-color-secondary);">
+  <ion-toolbar >
+
+
+    <ion-title class="ion-text-left">
+      {{user.full_name}}
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleMenu()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" style="--ion-text-color: var(--ion-color-medium);" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-down-outline"></ion-refresher-content>
+  </ion-refresher>
+
+
+
+
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-list lines="none">
+        <ion-item lines="none" style="--background: inherit;">
+          <ion-avatar slot="start" style="width: 72px;height: 72px;">
+            <img [src]="user.image">
+          </ion-avatar>
+          <ion-label>
+            <h3 style="font-weight: bold;">{{user.full_name}}</h3>
+            <h3 style="font-weight: bold;">{{user.full_name}}</h3>
+            <h3 style="font-weight: bold;">{{user.full_name}}</h3>
+           
+            <p style="vertical-align: middle;display: table-cell;">
+           
+              <ion-icon name="phone-portrait-outline" size="small" color="primary"
+                style="width: 14px;height: 14px;vertical-align: middle;" *ngIf="user.isMobileOnline">
+              </ion-icon>
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Keep close to Nature's heart... and break clear away, once in awhile,
+      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-item>
+    
+      <ion-label>Mis Doblajes</ion-label>
+      <ion-button fill="outline" slot="end">  <ion-icon name="film" slot="start"></ion-icon>+</ion-button>
+    </ion-item>
+  
+    <ion-card-content>
+    
+    </ion-card-content>
+  
+  </ion-card>
+
+</ion-content>

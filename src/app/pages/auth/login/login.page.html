@@ -1,0 +1,61 @@
+
+
+<ion-content   [fullscreen]="true" class="auth-page" >
+  <ion-grid  style=" margin-top: 0px;margin-bottom: 0px;" > 
+  
+    <ion-row>
+      <ion-col class="ion-text-center" size-md="6" size-lg="5" size-xs="12">
+        <form [formGroup]="login" (ngSubmit)="onSubmit()">
+          <br>
+         
+        
+<br>  <br>  <br>  <br>  <br>     <br>    <br>     <br> 
+
+          <ion-card clear color= "secondary" class="auth-card ion-margin">
+            <ion-item lines="none" color="light">
+              <ion-input type="email" id="inputEmail" placeholder="Email" formControlName="email" required autofocus></ion-input>
+            </ion-item>
+            
+            <ion-item lines="none" color="light" class="ion-no-inner-padding-end">
+              <ion-input type="password" id="inputPassword" placeholder="Password" formControlName="password"  required></ion-input>
+              <ion-button slot="end" fill="clear" class="ion-no-margin" [routerLink]="[ '/auth', 'forgot' ]"
+                routerDirection="forward">
+                <ion-icon slot="icon-only" color="medium" name="help-circle-outline"></ion-icon>
+              </ion-button>
+            </ion-item>
+          </ion-card>
+          <br>  
+          <ion-button clear color="secondary" expand="block" class="ion-margin-start ion-margin-end ion-margin-bottom" type="submit"
+            [disabled]="!login.valid">
+            Log In
+          </ion-button>
+          <span class="ion-margin"></span>
+          <ion-text style="color: aliceblue;">or</ion-text>
+          <span class="ion-margin"></span>
+          <ion-button  clear color="tertiary" expand="block" class="ion-margin" [routerLink]="[ '/auth', 'register' ]"
+            routerDirection="forward">
+            Sign Up
+          </ion-button>
+          <br>
+        </form>
+        <p class="alert alert-danger" *ngIf="mensaje">
+          El usuario o contraseña no es correcto
+          </p>
+          <!--
+        <ion-button  clear color=" --ion-color-facebook" style="color: rgb(0, 0, 0);" clear color="succes" expand="full" >
+          <ion-icon style="color: rgb(96, 88, 209);"  name="logo-facebook"></ion-icon>{{'Entra con Facebook ' | translate}}</ion-button>
+     
+      <br>
+   
+     
+        <ion-button  style="color: rgb(0, 0, 0);" clear color="succes"  expand="full" (click)="this.Googlelogin()"> <ion-icon style="color: rgb(231, 95, 95);"  name="logo-google"></ion-icon>  {{'   Entra con Google ' | translate}}</ion-button>
+        <br>
+    -->
+    <br>   
+        <div style="text-align: center; color: aqua;">
+        <ion-button style="border-color: aliceblue;" ><ion-icon name="logo-google-playstore"></ion-icon>{{'Consiguela en la' | translate}} <br> APP STORE</ion-button>
+      </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

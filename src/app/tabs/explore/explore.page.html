@@ -1,0 +1,72 @@
+<ion-header [translucent]="true"  >
+  <ion-toolbar>
+    <ion-title>
+      {{'Bases de Datos ' | translate}}
+    </ion-title>
+  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" style="background-color: primary;">
+<!--
+  <div class="ion-activatable ripple-parent">
+  <ion-button   style="height:78px;"   expand="block"> 
+    <ion-icon  style="margin-right: 10px;" name="happy-sharp"></ion-icon> Actores    <ion-ripple-effect type="unbounded"></ion-ripple-effect> </ion-button>
+    </div>
+  <ion-button  style="height:78px;" expand="block"><ion-icon  style="margin-right: 10px;" name="film-outline"></ion-icon>Peliculas   <ion-ripple-effect></ion-ripple-effect></ion-button>
+  <ion-button style="height:78px;"   expand="block"> <ion-icon  style="margin-right: 10px;" name="tv-sharp"></ion-icon>Series</ion-button>
+  <ion-button style="height:78px;"   expand="block"> <ion-icon style="margin-right: 10px;" name="game-controller"></ion-icon>Videojuegos</ion-button>
+  <ion-button  style="height:78px;" expand="block"> <ion-icon  style="margin-right: 10px;" name="videocam-sharp"></ion-icon>Spots Publicitarios</ion-button>
+  <ion-button style="height:78px;"   expand="block"> <ion-icon  style="margin-right: 10px;" name="school-sharp"></ion-icon>Formacion en Doblaje</ion-button>
+  <ion-button  style="height:78px;" expand="block"> <ion-icon  style="margin-right: 10px;"  name="mic-circle"></ion-icon>El Proceso de Doblaje</ion-button>
+-->
+
+<ion-grid>
+  <ion-row  style="margin-top: 60px;"  class="ion-align-items-start">
+    <ion-col style="text-align: center;" size="4">
+      <ion-button  style="font-size: 20px;color: rgb(127, 221, 250);" > 
+        <ion-icon name="people"></ion-icon>
+           </ion-button>
+      Usuarios
+    
+    </ion-col >
+    <ion-col style="text-align: center;" size="4">
+      <ion-button style="font-size: 20px;color: rgb(255, 228, 154);" > 
+        <ion-icon  style="font-size: 30px;"name="mic"></ion-icon>
+           </ion-button>
+      Actores
+    </ion-col>
+    <ion-col style="text-align: center;" size="4">
+      <ion-button  style="font-size: 20px;color: rgb(253, 106, 106)" > 
+        <ion-icon style="font-size: 30px;" name="film"></ion-icon>
+           </ion-button>
+      Peliculas
+    </ion-col>
+    
+  </ion-row>
+
+  <ion-row  style="margin-top: 80px;" class="ion-align-items-start">
+    <ion-col style="text-align: center;" size="4">
+
+      <ion-button   style="font-size: 20px;color: rgb(255, 140, 255);"> 
+        <ion-icon name="videocam"></ion-icon>
+           </ion-button> <br>
+      Series
+    </ion-col >
+    <ion-col style="text-align: center;" size="4">
+      <ion-button   style="font-size: 20px; color: rgb(169, 238, 104);"> 
+   <ion-icon   name="game-controller"></ion-icon>
+      </ion-button>
+      Videojuegos   
+    </ion-col>
+    <ion-col style="text-align: center;" size="4">
+      <ion-button  style="font-size: 20px;color: rgb(173, 156, 252);" > 
+        <ion-icon name="school"></ion-icon>
+           </ion-button>
+      Formación
+    </ion-col>
+    
+  </ion-row>
+</ion-grid>
+
+</ion-content>
