@@ -27,21 +27,30 @@ import { AutenticacionService } from './services/autenticacion.service';
 import * as firebase from 'firebase';
 import { environment } from 'src/environments/environment';
 import { LoadingService } from './services/loading.service';
+import{HTTP} from '@ionic-native/http/ngx'
+import { ApiService } from './services/api.service';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { FiltroPipe } from './pipes/filtro.pipe';
+import { PipesModule } from './pipes/pipes.module';
 firebase.initializeApp(environment.firebaseConfig);
 @NgModule({
   declarations: [
     AppComponent,
-    MusicPlayerComponent
+    MusicPlayerComponent,
+    FiltroPipe,
+  
   ],
   entryComponents: [
     MusicPlayerComponent
   ],
   imports: [
+   
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     IonicModule.forRoot(),
-  
+
     HttpClientModule,
     /* NGX TRANSLATE */
     TranslateModule.forRoot({
@@ -72,6 +81,12 @@ firebase.initializeApp(environment.firebaseConfig);
     GooglePlus,
     AutenticacionService,
     LoadingService,
+    HTTP,
+    ApiService,
+    Camera,
+    WebView,
+   FiltroPipe,
+   
   
 
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

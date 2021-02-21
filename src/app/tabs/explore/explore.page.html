@@ -1,13 +1,16 @@
 <ion-header [translucent]="true"  >
   <ion-toolbar>
     <ion-title>
-      {{'Bases de Datos ' | translate}}
+     Usuarios
     </ion-title>
-  
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" style="background-color: primary;">
+  <ion-searchbar placeholder="Buscar Usuario..."  (ionChange)="Buscar($event)"  debounce="1000"></ion-searchbar>
+
+
 <!--
   <div class="ion-activatable ripple-parent">
   <ion-button   style="height:78px;"   expand="block"> 
@@ -19,7 +22,7 @@
   <ion-button  style="height:78px;" expand="block"> <ion-icon  style="margin-right: 10px;" name="videocam-sharp"></ion-icon>Spots Publicitarios</ion-button>
   <ion-button style="height:78px;"   expand="block"> <ion-icon  style="margin-right: 10px;" name="school-sharp"></ion-icon>Formacion en Doblaje</ion-button>
   <ion-button  style="height:78px;" expand="block"> <ion-icon  style="margin-right: 10px;"  name="mic-circle"></ion-icon>El Proceso de Doblaje</ion-button>
--->
+
 
 <ion-grid>
   <ion-row  style="margin-top: 60px;"  class="ion-align-items-start">
@@ -68,5 +71,44 @@
     
   </ion-row>
 </ion-grid>
-
+-->
+<ion-refresher slot="fixed" style="--ion-text-color: var(--ion-color-medium);" (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content pullingIcon="arrow-down-outline"></ion-refresher-content>
+</ion-refresher>
+<ion-list>
+  <ion-item-sliding *ngFor="let Usuario of listadoConFoto | filtro:textoBuscar  ">
+  
+    <ion-item>
+      <ion-grind>
+        <ion-row>     
+          
+          <ion-col style="text-align: left;" size="3">
+            <ion-avatar >
+              <ion-img [src]="Usuario.foto" width="150px" style="border:2px solid #fff"></ion-img>
+           <!--  <img *ngIf="image" src={{user.avatar}} -->
+            </ion-avatar>
+        </ion-col>
+      
+     
+      <ion-col style="text-align:right ;" size="9">
+        <p style="text-align: right;"  (click)="this.infoUsuario(Usuario)"> {{Usuario.name}}</p>
+     
+        
+    </ion-col>
+    
+      
+    
+    </ion-row>
+        
+   
+   </ion-grind>
+   
+    </ion-item>
+    <ion-item-options side="end">
+      <ion-item-option color="danger" (click)="removeItem(item)">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
 </ion-content>

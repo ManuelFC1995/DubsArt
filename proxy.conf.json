@@ -1,0 +1,22 @@
+{
+    "/Users": {
+       "target": "http://localhost:8080",
+       "changeOrigin": true,
+       "secure": false,
+       "logLevel": "debug"
+     },
+
+     "/Publications": {
+        "target": "http://localhost:8080",
+        "changeOrigin": true,
+        "secure": false,
+        "logLevel": "debug"
+      },
+      "/cloudinary/upload": {
+        "target": "http://localhost:8080",
+        "changeOrigin": true,
+        "secure": false,
+        "logLevel": "debug"
+      }
+
+}

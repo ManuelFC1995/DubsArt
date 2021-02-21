@@ -13,9 +13,9 @@ export class LoadingService {
       const loading = await this.loadingController.create({
         cssClass: 'my-custom-class',
       
-        message: '<img src="/assets/img/loading.svg">',
-        spinner:null,
-        leaveAnimation:null,
+      
+        spinner:"crescent",
+      
       });
       await loading.present();
     }

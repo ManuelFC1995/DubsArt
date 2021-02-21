@@ -3,9 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-
-  ,
+  production: false,
+  endpoint:'http://localhost:8100/',
+  apiUsers:'Users/',
+  apiPublications:'Publications/',
+  apiMultimediaList:'cloudinary/List',
+  apiMultimediaSubir:'cloudinary/upload',
+  
   firebaseConfig:{
     apiKey: "AIzaSyAG1KVQClh0mbrvK8JdMwKdJ0BKFp3ltGw",
     authDomain: "dubsart-18d11.firebaseapp.com",

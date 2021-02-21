@@ -15,7 +15,7 @@ export class SettingsPage implements OnInit {
     { id: 'Apariencia', icon: 'color-palette-outline', link: 'appearance' },
     { id: 'General', icon: 'settings-outline', link: 'general' },
  
-    { id: 'Privacidad', icon: 'hand-left-outline', link: 'privacy' },
+    { id: 'Clanes', icon: 'hand-left-outline', link: 'privacy' },
  
    
     { id: 'Subscripciones', icon: 'card-outline', link: 'subscriptions' },

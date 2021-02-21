@@ -1,16 +1,16 @@
-<ion-header   style="--ion-background-color: var(--ion-color-secondary);">
-  <ion-toolbar >
-
-
-    <ion-title class="ion-text-left">
-    {{Usuario.name}}
-    </ion-title>
-
-    <ion-buttons slot="end">
-      <ion-button (click)="toggleMenu()">
-        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
-      </ion-button>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [text]="" defaultHref="/tabs/explore" (click)="atras()"></ion-back-button>
     </ion-buttons>
+  
+
+
+      <ion-title class="ion-text-left">
+      {{Usuario.name}}
+      </ion-title>
+  
+    
   </ion-toolbar>
 </ion-header>
 
@@ -36,7 +36,7 @@
            
             <h2  style="vertical-align: middle;display: table-cell;margin-left: 20px;">
            
-              <p style="color: cornflowerblue; text-align: center;">{{numero_publicaciones}}</p> Publicaci...
+              <p style="color: cornflowerblue; text-align: center;">{{numero_publicaciones}}</p> Publicacio...
             </h2>
           </ion-label>
 
@@ -55,15 +55,15 @@
     </ion-card-header>
   
     <ion-card-content>
-   {{Usuario.biografia}}
+  {{Usuario.biografia}}
     </ion-card-content>
   </ion-card>
   
   <ion-card>
     <ion-item>
     
-      <ion-label>Mis Doblajes</ion-label>
-      <ion-button  fill="outline" slot="end" (click)="this.Publicar()" >  <ion-icon name="film" slot="start"></ion-icon>+</ion-button>
+     
+      <ion-button  fill="outline" slot="end">  <ion-icon name="person-add-sharp"></ion-icon></ion-button>
     </ion-item>
   
     <ion-card-content>
@@ -71,19 +71,36 @@
     </ion-card-content>
   
   </ion-card>
+
+
   <ion-list>
     <ion-card *ngFor="let p of listadoConFoto">
-      <ion-card-header >
-    
-        <ion-item>
-          <ion-img  *ngIf="p.imagen" [src]="p.imagen"></ion-img>
+      <ion-card-header style="background-color: rgb(255, 237, 198);">
+        <ion-item lines="none">
+      
+          <ion-label>
+            
+            <h2>{{p.descripcion}}</h2>
+          </ion-label>
+          <br>
+         
+          <ion-item>  <ion-buttons slot="end">
+            <ion-button (click)="presentAlertConfirmDelete(p.id)" color="medium">
+             
+              <ion-icon  slot="icon-only" name="trash-sharp"></ion-icon>
+            </ion-button>
+          </ion-buttons></ion-item>
         
         </ion-item>
+      
       </ion-card-header>
   
 
       <ion-card-content class="post-list-content" >
-       
+        <ion-item>
+          <ion-img  *ngIf="p.imagen" [src]="p.imagen"></ion-img>
+        
+        </ion-item>
       </ion-card-content>
 
       <ion-item  lines="none" class="action-item">
@@ -107,29 +124,11 @@
             <ion-icon size="small" slot="start" name="eye-outline"></ion-icon>
             6
           </ion-button>
-          <ion-button (click)="presentAlertConfirmDelete(p.id)" color="medium">
-           
-            <ion-icon  slot="icon-only" name="trash-sharp"></ion-icon>
-          </ion-button>
         </ion-buttons>
-      </ion-item>
-      <ion-item lines="none">
-      
-        <ion-label>
-          
-          <h2>{{p.descripcion}}</h2>
-        </ion-label>
-        <br>
-       
-      
-      
       </ion-item>
     </ion-card>
   </ion-list>
  
   
  
-  
-
-
 </ion-content>

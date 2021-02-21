@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { ModalController, NavController } from '@ionic/angular/';
+import { Usuario } from 'src/app/model/Usuario';
 import { AutenticacionService } from 'src/app/services/autenticacion.service';
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ import { AutenticacionService } from 'src/app/services/autenticacion.service';
 export class LoginPage implements OnInit {
   login: FormGroup;
   userdata: any;
+  user:Usuario;
   
  mensaje = false;
   constructor(

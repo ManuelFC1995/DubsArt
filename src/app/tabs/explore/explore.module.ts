@@ -5,12 +5,13 @@ import { ExplorePage } from './explore.page';
 import { ExplorePageRoutingModule } from './explore-routing.module';
 
 import { SharedModule } from '../../shared/shared.module';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     ExplorePageRoutingModule,
-
+    PipesModule,
     SharedModule
   ],
   declarations: [ExplorePage]

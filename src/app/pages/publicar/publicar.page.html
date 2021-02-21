@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Publicar</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="/tabs/profile" (click)="atras()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="tasks" (ngSubmit)="this.sendForm()">
+   
+    <br>
+    <ion-item>
+      <ion-textarea 
+      formControlName="descripcion"
+      placeholder="Description"
+      autocapitalize="true"
+      auto-grow="true"></ion-textarea>
+    </ion-item>
+    <div style="text-align: right;">
+      <br>
+
+      <ion-button 
+      shape="round"
+      color="primary"
+      fill="outline"
+      (click)="presentAlertFotos()"
+     >añadir archivo</ion-button>
+
+
+      <ion-button 
+      shape="round"
+      color="primary"
+      fill="outline"
+      type="submit"
+      [disabled]="!tasks.valid">Añadir</ion-button>
+    
+        <ion-img [src]="imagen"></ion-img>
+    
+
+  </div>
+  </form>
+</ion-content>

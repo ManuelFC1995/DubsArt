@@ -58,27 +58,53 @@
     </ion-header>
 
     <ion-content>
-      <ion-list lines="none">
-        <ion-item button>
-        <h1>Mis Favoritos</h1>
-        </ion-item>
-        <ion-item button>
-          <ion-icon color="primary" slot="start" name="bookmarks-outline"></ion-icon>
-          <ion-label>Pelicula  : El Padrino</ion-label>
-        </ion-item>
-        <ion-item button>
-          <ion-icon color="primary" slot="start" name="bookmarks-outline"></ion-icon>
-          <ion-label>Saga  : El Señor de los Anillos</ion-label>
-        </ion-item>
-        <ion-item button>
-          <ion-icon color="primary" slot="start" name="bookmarks-outline"></ion-icon>
-          <ion-label>Serie  : Ataque a los Titanes</ion-label>
-        </ion-item>
-        <ion-item button>
-          <ion-icon color="primary" slot="start" name="bookmarks-outline"></ion-icon>
-          <ion-label>Libro  :  valle de los Lobos</ion-label>
-        </ion-item>
-      </ion-list>
+      <ion-grid>
+        <ion-row  style="margin-top: 60px;"  class="ion-align-items-start">
+          <ion-col style="text-align: center;" size="4">
+            <ion-button  style="font-size: 20px;color: rgb(127, 221, 250);" > 
+              <ion-icon name="people"></ion-icon>
+                 </ion-button>
+            Usuarios
+          
+          </ion-col >
+          <ion-col style="text-align: center;" size="4">
+            <ion-button style="font-size: 20px;color: rgb(255, 228, 154);" > 
+              <ion-icon  style="font-size: 30px;"name="mic"></ion-icon>
+                 </ion-button>
+            Actores
+          </ion-col>
+          <ion-col style="text-align: center;" size="4">
+            <ion-button  style="font-size: 20px;color: rgb(253, 106, 106)" > 
+              <ion-icon style="font-size: 30px;" name="film"></ion-icon>
+                 </ion-button>
+            Peliculas
+          </ion-col>
+          
+        </ion-row>
+      
+        <ion-row  style="margin-top: 80px;" class="ion-align-items-start">
+          <ion-col style="text-align: center;" size="4">
+      
+            <ion-button   style="font-size: 20px;color: rgb(255, 140, 255);"> 
+              <ion-icon name="videocam"></ion-icon>
+                 </ion-button> <br>
+            Series
+          </ion-col >
+          <ion-col style="text-align: center;" size="4">
+            <ion-button   style="font-size: 20px; color: rgb(169, 238, 104);"> 
+         <ion-icon   name="game-controller"></ion-icon>
+            </ion-button>
+            Videojuegos   
+          </ion-col>
+          <ion-col style="text-align: center;" size="4">
+            <ion-button  style="font-size: 20px;color: rgb(173, 156, 252);" > 
+              <ion-icon name="school"></ion-icon>
+                 </ion-button>
+            Formación
+          </ion-col>
+          
+        </ion-row>
+      </ion-grid>
     </ion-content>
 
     <ion-footer>

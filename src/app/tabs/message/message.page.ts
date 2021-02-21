@@ -31,7 +31,7 @@ export class MessagePage {
           first_name: faker.name.firstName(),
           last_name: faker.name.lastName(),
           email: faker.internet.email(),
-          image: faker.internet.avatar(),
+          image:"/assets/imagenes/avatar.jpg",
           last_message: faker.lorem.sentence()
         };
       });

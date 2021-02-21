@@ -1,5 +1,9 @@
 export const environment = {
   production: true,
+  endpoint:'http://localhost:8100/',
+  apiUsers:'Users/',
+  apiPublications:'Publication/',
+  apiMultimedia:'cloudinary/',
   firebaseConfig:{
     apiKey: "AIzaSyAG1KVQClh0mbrvK8JdMwKdJ0BKFp3ltGw",
     authDomain: "dubsart-18d11.firebaseapp.com",

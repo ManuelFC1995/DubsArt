@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl,  FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Usuario } from 'src/app/model/Usuario';
+import { ApiService } from 'src/app/services/api.service';
 import { AutenticacionService } from 'src/app/services/autenticacion.service';
 @Component({
   selector: 'app-register',
@@ -8,8 +10,19 @@ import { AutenticacionService } from 'src/app/services/autenticacion.service';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+
+
   register: FormGroup;
   userdata: any; 
+  user : Usuario = {
+    id : undefined,
+    name:undefined,
+    foto:undefined,
+     biografia:undefined,
+    publicaciones: undefined
+  };
+ 
+
   erroresForm = {
     'email': '',
     'password': ''
@@ -33,18 +46,26 @@ export class RegisterPage implements OnInit {
     private fb: FormBuilder,private formBuilder: FormBuilder,
       private autService: AutenticacionService,
       private router: Router,
-      private activatedRouter: ActivatedRoute
+      private activatedRouter: ActivatedRoute,
+      private api:ApiService
   ) { }
 
   onRegister() {
     if (this.register.valid) {
       console.log(this.register.value);
+    
     }
   }
 
-  onSubmit() {
+  async onSubmit() {
     this.userdata = this.saveUserdata();
-    this.autService.registroUsuario(this.userdata);
+ let Usuario=  await  this.autService.registroUsuario(this.userdata);
+    this.user.name=  this.register.get('first_name').value,
+    this.user.id=  Usuario.user.uid;
+
+      this.user.foto="/assets/imagenes/avatar.jpg";
+    
+    this.api.createUser(this.user);
     this.router.navigate(['/auth'])
     }
 
@@ -100,6 +121,17 @@ export class RegisterPage implements OnInit {
     };
     return saveUserdata;
     }
+
+    saveUserName() {
+      const saveUsername = {
+        
+      name: this.register.get('first_name').value,
+   
+      };
+      return saveUsername;
+      }
+
+  
 
     onValueChanged(data?: any) {
       if (!this.register) { return; }

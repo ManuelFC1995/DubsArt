@@ -5,6 +5,9 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import * as firebase from 'firebase';
 import {  ActivatedRoute } from '@angular/router';
 import { LoadingService } from './loading.service';
+import { Usuario } from '../model/Usuario';
+import { ApiService } from './api.service';
+
 
 
 @Injectable({
@@ -12,9 +15,20 @@ import { LoadingService } from './loading.service';
 })
 
 export class AutenticacionService implements CanActivate {
+  //usuario firebase
   user:any;
+  //Usuario Api
+  userApi: Usuario | null= {
+    id : undefined,
+    name:undefined,
+    foto:undefined,
+     biografia:undefined,
+    publicaciones: undefined
+  };
+
   constructor(private router: Router,private storage: NativeStorage,
-    private activatedRouter: ActivatedRoute,private LoadingService: LoadingService) { 
+    private activatedRouter: ActivatedRoute,private LoadingService: LoadingService,
+    private api:ApiService) { 
    
     }
 
@@ -31,13 +45,9 @@ export class AutenticacionService implements CanActivate {
       }
     }
 
-  registroUsuario (userdata) {
-    firebase.auth().createUserWithEmailAndPassword(userdata.email,
+  registroUsuario (userdata ):Promise<firebase.auth.UserCredential> {
+  return  firebase.auth().createUserWithEmailAndPassword(userdata.email,
    userdata.password)
-    .catch(error => {
-      console.log(error);
-      }
-      )
       }
 
 
@@ -45,14 +55,13 @@ export class AutenticacionService implements CanActivate {
         firebase.auth().signInWithEmailAndPassword(userdata.email,
         userdata.password)
         .then(async response => {
-        console.log(response);
+     this.userApi= await this.api.getUserId(response.user.uid);
+     console.log(this.userApi);
         this.user = firebase.auth().currentUser;
         await this.storage.setItem("user",this.user);
+        await this.storage.setItem("userApi",this.userApi);
        this.router.navigate(['/']);
-      
-   
-   
-      })
+       })
       .catch(
       error => {
     
@@ -78,6 +87,15 @@ export class AutenticacionService implements CanActivate {
           firebase.auth().signOut();
           this.user=null;
           await this.storage.setItem("user",this.user);
+          this.userApi= {
+            id : undefined,
+            name:undefined,
+            foto:undefined,
+             biografia:undefined,
+            publicaciones: undefined
+          };
+          await this.storage.setItem("userApi",this.userApi);
+       
   
      
           } 
@@ -92,6 +110,8 @@ export class AutenticacionService implements CanActivate {
           }
           getUser(){
             const user = firebase.auth().currentUser;
+            
             return user;
           }
+
 }

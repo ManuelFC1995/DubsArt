@@ -21,6 +21,14 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthPageModule)
+  },
+  {
+    path: 'user-info',
+    loadChildren: () => import('./pages/user-info/user-info.module').then( m => m.UserInfoPageModule)
+  },
+  {
+    path: 'publicar',
+    loadChildren: () => import('./pages/publicar/publicar.module').then( m => m.PublicarPageModule)
   }
 ];
 @NgModule({

@@ -47,18 +47,16 @@
     <ion-card class="post-card" *ngIf="stories.length">
       <ion-item lines="none" class="post-item">
         <ion-avatar slot="start">
-          <img [src]="stories[0].image">
+          <img [src]="Usuario.foto">
         </ion-avatar>
         <ion-button class="post-some" color="light">
-          <span class="post-some-title">{{'whats_new' | translate}}</span>
+          <span class="post-some-title">Que te cuentas {{Usuario.name}}</span>
         </ion-button>
         <ion-buttons slot="end">
-          <ion-button color="medium">
-            <ion-icon slot="icon-only" name="image-outline"></ion-icon>
+          <ion-button   (click)="this.Publicar()"  color="medium">
+            <ion-icon  slot="icon-only" name="image-outline"></ion-icon>
           </ion-button>
-          <ion-button color="medium">
-            <ion-icon slot="icon-only" name="disc-outline"></ion-icon>
-          </ion-button>
+        
         </ion-buttons>
       </ion-item>
     </ion-card>
@@ -78,43 +76,54 @@
       </ion-list>
     </ion-card>
  -->
-    <!-- Users posts -->
+    <!-- Users posts 
 
-    <!--cambiar las clases si quieres repetir
+    cambiar las clases si quieres repetir -->
     <ng-container>
-      <ion-card class="post-list-card" >
-        <ion-item lines="none">
+      <ion-list>
+      <ion-card class="post-list-card"  *ngFor="let p of listadoConFoto">
+        <ion-card-header>
+
           <ion-avatar slot="start">
-            <img [src]="post.image">
+            <img [src]="">
           </ion-avatar>
+        </ion-card-header>
+        <ion-item lines="none">
+        
           <ion-label>
-            {{post.first_name}} {{post.last_name}}
+            
             <p>two minutes ago</p>
           </ion-label>
-          <ion-buttons slot="end">
+          <br>
+          <ion-item>
+            <ion-img style="align-content: center;" *ngIf="p.imagen" [src]="p.imagen"></ion-img>
+          
+          </ion-item>
+          <ion-item>  <ion-buttons slot="end">
             <ion-button color="medium">
               <ion-icon slot="icon-only" md="ellipsis-vertical-outline" ios="ellipsis-horizontal-outline"></ion-icon>
             </ion-button>
-          </ion-buttons>
+          </ion-buttons></ion-item>
+        
         </ion-item>
 
         <ion-card-content class="post-list-content">
-          {{post.content}}
+        
         </ion-card-content>
 
         <ion-item lines="none" class="action-item">
           <ion-buttons slot="start">
             <ion-button color="medium" class="action-button">
               <ion-icon slot="start" name="heart-outline"></ion-icon>
-              {{post.likes}}
+            
             </ion-button>
             <ion-button color="medium" class="action-button">
               <ion-icon slot="start" name="chatbox-outline"></ion-icon>
-              {{post.comments}}
+            
             </ion-button>
             <ion-button color="medium" class="action-button">
               <ion-icon slot="start" name="return-up-forward-outline"></ion-icon>
-              {{post.shared}}
+         
             </ion-button>
           </ion-buttons>
 
@@ -126,11 +135,11 @@
           </ion-buttons>
         </ion-item>
       </ion-card>
-      
-
+      <br><br><br>
+    </ion-list>
       
     </ng-container>
-  -->
+ 
  
   </div>
 

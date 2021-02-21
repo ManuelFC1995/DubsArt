@@ -17,7 +17,7 @@
       <ion-fab-button slot="start" size="small" [color]="page_item.color" style="width: 30px;height: 30px;">
         <ion-icon size="small" color="light" [name]="page_item.icon"></ion-icon>
       </ion-fab-button>
-      <ion-label>{{'settings_notifications.' + page_item.id | translate}}</ion-label>
+      <ion-label>{{ page_item.id }}</ion-label>
     </ion-item>
   </ion-list>
 
